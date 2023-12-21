@@ -7,6 +7,10 @@ import { CartService } from '../services/cart.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
+export class HeaderComponent{
+
+
   constructor(public cartService: CartService) {}
+
+
 }

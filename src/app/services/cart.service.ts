@@ -5,9 +5,12 @@ import { MarketplaceItemType } from '../types/Marketplace.type';
   providedIn: 'root',
 })
 export class CartService {
+
   private _cartItems = new BehaviorSubject<
     Array<{ item: MarketplaceItemType; quantity: number }>
   >([]);
+
+
   constructor() {}
 
   getCartIems() {
@@ -34,5 +37,9 @@ export class CartService {
       1
     );
     this._cartItems.next(currentCartItem);
+  }
+
+   sum():number{
+return 1+1;
   }
 }
