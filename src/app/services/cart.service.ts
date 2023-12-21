@@ -5,11 +5,9 @@ import { MarketplaceItemType } from '../types/Marketplace.type';
   providedIn: 'root',
 })
 export class CartService {
-
   private _cartItems = new BehaviorSubject<
     Array<{ item: MarketplaceItemType; quantity: number }>
   >([]);
-
 
   constructor() {}
 
@@ -31,15 +29,15 @@ export class CartService {
   }
 
   removeItem(itemId: number) {
-    const currentCartItem = this._cartItems.getValue();
-    currentCartItem.splice(
-      currentCartItem.findIndex((p) => p.item.id == itemId),
+    const currentCartItems = this._cartItems.getValue();
+    currentCartItems.splice(
+      currentCartItems.findIndex((p) => p.item.id == itemId),
       1
     );
-    this._cartItems.next(currentCartItem);
+    this._cartItems.next(currentCartItems);
   }
 
-   sum():number{
-return 1+1;
+  sum(): number {
+    return 1 + 1;
   }
 }

@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { MarketplaceItemListComponent } from './marketplace/marketplace-item-list/marketplace-item-list.component';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
     MarketplaceComponent,
     MarketplaceItemListComponent,
   ],
-  imports: [BrowserModule, CommonModule, AppRoutingModule],
+  imports: [AppRoutingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
