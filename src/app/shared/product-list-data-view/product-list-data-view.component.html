@@ -1,64 +1,42 @@
-<p-dataView #dv [value]="cartItems">
-  <ng-template pTemplate="list" let-cartItems>
-    <div class="grid grid-nogutter">
-      <div class="col-12" *ngFor="let item of cartItems">
-        <div
-          class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4"
-        >
-          <div class="col-12 md:col-4">
-            <p-avatar
-              image="{{ item.item.image }}"
-              styleClass="mr-2"
-              size="xlarge"
-            ></p-avatar>
-            <h5>{{ item.item.title }}</h5>
-          </div>
-          <div
-            class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4"
+<div class="container">
+  <div style="padding: 10px" class="row" *ngFor="let item of cartItems">
+    <div class="col">
+      <div class="row">
+        <div class="col col-auto">
+          <p-avatar
+            image="{{ item.item.image }}"
+            styleClass="mr-2"
+            size="large"
+          ></p-avatar>
+        </div>
+        <div class="col col-6 text-left">
+          <h5>{{ item.item.title }}</h5>
+
+          <h6>{{ item.item.categorty }}</h6>
+        </div>
+        <div class="col col-2">
+          <p-inputNumber
+          class="p-inputnumber-sm"
+            [(ngModel)]="item.quantity"
+            [size]="1"
+            mode="decimal"
+            [showButtons]="true"
+            inputId="minmax-buttons"
+            [min]="1"
+            [max]="100"
           >
-            <div
-              class="flex flex-column align-items-center sm:align-items-start gap-3"
-            >
-              <div class="text-2xl font-bold text-900"></div>
-
-              <div class="flex align-items-center gap-3">
-                <span class="flex align-items-center gap-2">
-                  <i class="pi pi-tag"></i>
-                  <span class="font-semibold" style="font-size: 0.9em"
-                    >{{ item.item.categorty }}
-                    <button
-                      (click)="confirmDlete($event, item.item)"
-                      type="button"
-                      class="btn btn-danger"
-                    >
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
-                    <div style="padding-top: 10px">
-                      <p-inputNumber
-                        [(ngModel)]="item.quantity"
-                        class="p-inputnumber-sm"
-                        mode="decimal"
-                        [showButtons]="true"
-                        inputId="minmax-buttons"
-                        [min]="1"
-                        [max]="100"
-                      >
-                      </p-inputNumber>
-                    </div>
-                  </span>
-                </span>
-              </div>
-            </div>
-            <div
-              class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2"
-            >
-              <p-confirmPopup></p-confirmPopup>
-
-              <div style="width: 10px; padding: 10px"></div>
-            </div>
-          </div>
+          </p-inputNumber>
+        </div>
+        <div class="col text-left">
+          <button
+            (click)="confirmDlete($event, item.item)"
+            type="button"
+            class="btn btn-danger"
+          >
+            <i class="fa-solid fa-trash"></i>
+          </button>
         </div>
       </div>
     </div>
-  </ng-template>
-</p-dataView>
+  </div>
+</div>

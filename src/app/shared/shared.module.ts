@@ -9,7 +9,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { ProductListDataViewComponent } from './product-list-data-view/product-list-data-view.component';
 import { AvatarModule } from 'primeng/avatar';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmationService } from 'primeng/api';
 
@@ -25,7 +25,7 @@ import { ConfirmationService } from 'primeng/api';
     AvatarModule,
     InputNumberModule,
     FormsModule,
-    ConfirmPopupModule,
+    ConfirmPopupModule,ReactiveFormsModule
   ],
   exports: [
     BrowserModule,
@@ -37,7 +37,7 @@ import { ConfirmationService } from 'primeng/api';
     DataViewModule,
     AvatarModule,
     InputNumberModule,
-    ConfirmPopupModule,
+    ConfirmPopupModule,FormsModule,ReactiveFormsModule
   ],
   providers: [ConfirmationService],
 })
