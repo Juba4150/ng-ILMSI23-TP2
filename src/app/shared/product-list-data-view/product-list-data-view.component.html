@@ -2,9 +2,9 @@
   <div style="padding: 10px" class="row" *ngFor="let item of cartItems">
     <div class="col">
       <div class="row">
-        <div class="col col-auto">
+        <div class="col col-2">
           <p-avatar
-            image="{{ item.item.image }}"
+            [image]="item.item.image"
             styleClass="mr-2"
             size="large"
           ></p-avatar>
@@ -14,9 +14,10 @@
 
           <h6>{{ item.item.categorty }}</h6>
         </div>
-        <div class="col col-2">
+
+        <div class="col col-3">
           <p-inputNumber
-          class="p-inputnumber-sm"
+            class="p-inputnumber-sm"
             [(ngModel)]="item.quantity"
             [size]="1"
             mode="decimal"
@@ -27,8 +28,10 @@
           >
           </p-inputNumber>
         </div>
-        <div class="col text-left">
+        <div class="col col-1 mx-auto">
+          <p-confirmPopup></p-confirmPopup>
           <button
+            style="font-size: 0.6rem"
             (click)="confirmDlete($event, item.item)"
             type="button"
             class="btn btn-danger"

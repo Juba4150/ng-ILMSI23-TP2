@@ -18,26 +18,19 @@ import { ConfirmationService } from 'primeng/api';
   imports: [
     BrowserModule,
     CommonModule,
-    PrimeModule,
-    SidebarModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
-    DataViewModule,
-    AvatarModule,
-    InputNumberModule,
     FormsModule,
-    ConfirmPopupModule,ReactiveFormsModule
+    PrimeModule,
   ],
   exports: [
     BrowserModule,
     CommonModule,
-    PrimeModule,
-    SideBarCartComponent,
-    SidebarModule,
+    FormsModule,
     BrowserAnimationsModule,
-    DataViewModule,
-    AvatarModule,
-    InputNumberModule,
-    ConfirmPopupModule,FormsModule,ReactiveFormsModule
+    SideBarCartComponent,
+    ReactiveFormsModule,
+    PrimeModule,
   ],
   providers: [ConfirmationService],
 })

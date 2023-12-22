@@ -3,33 +3,39 @@
     <div
       class="col-sm-3"
       *ngFor="let item of productService.getProducts() | async"
+      style="margin-top: 30px"
     >
-      <div class="card w-100">
+      <div class="card">
         <img
           src="{{ item.image }}"
           class="card-img-top"
           alt="{{ item.title }}"
         />
         <div class="card-body">
-          <h4 class="card-title">{{ item.title }}</h4>
-          <h6 style="font-size: small">{{ item.categorty }}</h6>
-          <p class="card-text">{{ item.description }}</p>
+          <div class="row">
+            <div class="col">
+              <h4 class="card-title">{{ item.title }}</h4>
+              <h6 style="font-size: small">{{ item.categorty }}</h6>
+              <p class="card-text">{{ item.description }}</p>
+              <div class="row">
+                <a
+                  *ngIf="!item.isSelected"
+                  (click)="addProduct(item)"
+                  class="btn btn-success"
+                >
+                  + Add to cart</a
+                >
 
-          <a
-            *ngIf="!item.isSelected"
-            (click)="addProduct(item)"
-            class="btn btn-success"
-          >
-            + Add to cart</a
-          >
-
-          <a
-            *ngIf="item.isSelected"
-            (click)="removeProduct(item)"
-            class="btn btn-danger"
-          >
-            + Remove from cart</a
-          >
+                <a
+                  *ngIf="item.isSelected"
+                  (click)="removeProduct(item)"
+                  class="btn btn-danger"
+                >
+                  + Remove from cart</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
